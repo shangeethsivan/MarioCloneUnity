@@ -26,11 +26,24 @@ public class PlayerControlScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x,400);
         }
         
-        // if(Input.GetKey("left")) {
-        //     rb.velocity = new Vector2(-3,rb.velocity.y);
-        // }
-        // if(Input.GetKey("right")) {
-        //     rb.velocity = new Vector2(3,rb.velocity.y);
-        // }
+        
+            Debug.Log(System.Convert.ToString(transform.position.y));
+        if (transform.position.y > 800 || transform.position.y < 10)
+        {
+            Death();
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D col){
+        if(col.gameObject.tag == "Enemy"){
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = new Vector2(0, 0);
     }
 }

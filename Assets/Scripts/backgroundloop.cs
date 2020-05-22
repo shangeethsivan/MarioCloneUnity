@@ -5,7 +5,7 @@ using UnityEngine;
 public class backgroundloop : MonoBehaviour
 {
 
-    public float speed = 0.5f;
+    public float speed = 0.2f;
 
     // Start is called before the first frame update
     void Start()

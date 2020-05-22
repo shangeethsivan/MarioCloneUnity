@@ -15,12 +15,4 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(-200,rb.velocity.y);
     }
-
-
-    void OnCollisionEnter2D(Collision2D col){
-
-        if(col.gameObject.name == "mario"){
-            Debug.Log("Collided with mario");
-        }
-    }
 }
