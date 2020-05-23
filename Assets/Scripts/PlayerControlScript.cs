@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControlScript : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public AudioSource audioSource;
     // public Transform groundCheck;
     // public float groundCheckRadius;
     // public LayerMask whatIsGround;
@@ -14,6 +15,7 @@ public class PlayerControlScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,10 +26,11 @@ public class PlayerControlScript : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) || Input.GetKey("space")) {
             rb.velocity = new Vector2(rb.velocity.x,400);
+            audioSource.Play();
         }
         
         
-            Debug.Log(System.Convert.ToString(transform.position.y));
+            // Debug.Log(System.Convert.ToString(transform.position.y));
         if (transform.position.y > 800 || transform.position.y < 10)
         {
             Death();
